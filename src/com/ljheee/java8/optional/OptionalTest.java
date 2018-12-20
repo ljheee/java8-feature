@@ -1,4 +1,4 @@
-package com.ljheee.java8;
+package com.ljheee.java8.optional;
 
 import java.util.Optional;
 
@@ -7,23 +7,23 @@ import java.util.Optional;
  */
 public class OptionalTest {
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
 
         OptionalTest tester = new OptionalTest();
         Integer value1 = null;
         Integer value2 = new Integer(5);
 
         // ofNullable 允许传参时给出 null
+//        Optional<Integer> a = Optional.of(value1);//NullPointerException
         Optional<Integer> a = Optional.ofNullable(value1);
 
         // 如果传递的参数为null，那么 of 将抛出空指针异常（NullPointerException）
         Optional<Integer> b = Optional.of(value2);
-        System.out.println(tester.sum(a,b));
+        System.out.println(tester.sum(a, b));
     }
 
 
-
-    public Integer sum(Optional<Integer> a, Optional<Integer> b){
+    public Integer sum(Optional<Integer> a, Optional<Integer> b) {
 
         // isPresent 用于检查值是否存在
 
