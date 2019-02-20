@@ -41,6 +41,7 @@ public class Java8Stream {
         nums.add(null);
         nums.add(5);
         long count = nums.stream().filter(num -> num != null).count();
+        System.out.println("过滤后count="+count);//过滤 返回预言Predicate为true的
 
 
         foods.stream().map(item -> item.getPrice() * item.getNum()).forEach(System.out::print);
@@ -71,7 +72,8 @@ public class Java8Stream {
 
 
 
-        Map<Long, Double> id_price_Map = foods.stream().collect(Collectors.toMap(Food::getId,item->item.getPrice()));
+        Map<Long, Double> id_price_Map = foods.stream().collect(Collectors.toMap(Food::getId,item->item.getPrice()));// Duplicate key
+        Map<Long, Double> id_price_Map2 = foods.stream().collect(Collectors.toMap(Food::getId,item->item.getPrice(),(k1,k2)->k1));// 相同的key进行覆盖
 
 
 
